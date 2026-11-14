@@ -491,6 +491,14 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
   B('equ-5', ['w2'], ['equipements', 'insignes'], 'Livre', 'The British Soldier in North West Europe 1944-1945', 'Jean Bouchery', 'https://laprocure.com/product/1272119/bouchery-jean-the-british-soldier-in-north-west-europe-1944-1945-uniforms-insignia-equipment-organisation-armament-and-vehicles');
   B('equ-6', ['w2'], ['equipements', 'insignes'], 'Livre', 'Allies in Battledress : from Normandy to the North Sea 1944-45', 'Jean Bouchery', 'https://laprocure.com/product/1372707/bouchery-jean-allies-in-battledress-from-normandy-to-the-north-sea-1944-45-organisation-uniforms-insignia-tanks-and-vehicles-armament-equipment');
   B('equ-7', ['w2'], ['equipements'], 'Livre', 'G.I. Government Issue : US Army, European Theater of Operations, vol. II', 'Henri-Paul Enjames (Histoire & Collections)', 'https://www.lagalerne.com/livre/719318-volume-ii-government-issue-us-army-european--henri-paul-enjames-histoire-et-collections');
+  /* Textes officiels (journaux, bulletins, règlements) */
+  B('off-1', ['be', 'w1', 'ed', 'w2'], ['insignes', 'equipements', 'casques'], 'Texte officiel', 'Journal officiel de la République française, lois et décrets : collection numérisée jusqu\'en 1946 (décrets de décorations, de modèles réglementaires)', 'Gallica (BnF)', 'https://gallica.bnf.fr/blog/node/1401');
+  B('off-2', ['gf', 'ac'], ['insignes', 'equipements', 'casques'], 'Texte officiel', 'Légifrance : Journal officiel, lois et décrets, à partir de 1990', 'Légifrance', 'https://www.legifrance.gouv.fr/jorf/');
+  B('off-3', ['gf', 'ac'], ['insignes', 'equipements', 'armes_feu'], 'Texte officiel', 'Bibliothèque des bulletins officiels du ministère des Armées (le Bulletin officiel des armées lui-même n\'est plus publié depuis juin 2019)', 'Ministère des Armées', 'https://www.bo.sga.defense.gouv.fr/');
+  B('off-4', ['ar', 'em', 'x19', 'be', 'w1', 'ed', 'w2', 'gf', 'ac'], ['insignes', 'equipements'], 'Texte officiel', 'The Gazette (London Gazette) : archives depuis 1665, avis de décorations et de distinctions militaires', 'Royaume-Uni', 'https://www.thegazette.co.uk/');
+  B('off-5', ['ed', 'w2'], ['insignes', 'equipements', 'casques'], 'Texte officiel', 'Reichsgesetzblatt, parties I et II, 1922-1944 (fac-similés)', 'ALEX, Bibliothèque nationale autrichienne', 'http://alex.onb.ac.at/gesetze_drab_fs.htm');
+  B('off-6', ['x19', 'be', 'w1', 'ed'], ['insignes', 'equipements'], 'Texte officiel', 'Reichs-, Staats- und Bundesgesetzblatt 1848-1940 (Autriche)', 'RIS, Chancellerie fédérale autrichienne', 'https://ris.bka.gv.at/Bgbl-Alt/');
+  B('off-7', ['gf', 'ac'], ['insignes', 'equipements'], 'Texte officiel (site tiers)', 'US Army Regulation 670-1 (uniformes et insignes), édition de septembre 1992 en PDF', 'Site tiers, à comparer avec les éditions officielles', 'https://ciehub.info/ref/AR/670-1_1992-09-01.pdf');
   /* Généralistes */
   B('gen-1', ALL20, [], 'Revue', 'Militaria magazine (Histoire & Collections) : numéros numérisés et notices', 'Bibliothèque numérique de la Défense', D);
   B('gen-2', ['w1', 'ed', 'w2', 'gf'], [], 'Forum', 'WarRelics.eu : forum, sections casques et insignes', 'Certains contenus réservés aux membres', 'https://www.warrelics.eu/forum/');
@@ -863,7 +871,7 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
   /* =========================================================
      Invites
      ========================================================= */
-  var SCHEMA_EXAMPLE = '{"categorie_detectee":"casques","periode_estimee":{"intitule":"Première Guerre mondiale","fourchette":"vers 1916-1918","confiance":"moyenne"},"resume":"Deux phrases sur ce que montre la pièce.","marquages":[{"emplacement":"intérieur de la calotte","texte":"ET66","lecture":"certaine"}],"hypotheses":[{"intitule":"Modèle et variante","pays":"Allemagne","periode":"1916-1918","confiance":"moyenne","pour":["indice"],"contre":["indice"]}],"incoherences":["point suspect"],"verifications":["vérification à faire sur la pièce"],"ouvrages":[{"id":"cas-2","pourquoi":"raison en une phrase"}],"mots_cles":["mot clé"],"reglementation":"Une phrase si la pièce est une arme ou vient de fouilles, sinon chaîne vide.","expert":{"recommande":true,"raison":"raison en une phrase"}}';
+  var SCHEMA_EXAMPLE = '{"categorie_detectee":"casques","periode_estimee":{"intitule":"Première Guerre mondiale","fourchette":"vers 1916-1918","confiance":"moyenne"},"resume":"Deux phrases sur ce que montre la pièce.","marquages":[{"emplacement":"intérieur de la calotte","texte":"ET66","lecture":"certaine"}],"hypotheses":[{"intitule":"Modèle et variante","pays":"Allemagne","periode":"1916-1918","confiance":"moyenne","pour":["indice"],"contre":["indice"]}],"incoherences":["point suspect"],"verifications":["vérification à faire sur la pièce"],"ouvrages":[{"id":"cas-2","pourquoi":"raison en une phrase"}],"textes_officiels":[{"pays":"France","type":"décret ou circulaire","sujet":"modèle réglementaire concerné","ou":"off-1"}],"mots_cles":["mot clé"],"reglementation":"Une phrase si la pièce est une arme ou vient de fouilles, sinon chaîne vide.","expert":{"recommande":true,"raison":"raison en une phrase"}}';
 
   function biblioForPrompt() {
     return BIBLIO.map(function (b) {
@@ -893,6 +901,7 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
       "- Pour les pièces d'avant 1900, pense aux pastiches et copies du XIXe siècle (style historiciste), aux répliques de reconstitution ou de décoration, et aux faux de fouille pour l'archéologie.",
       "- Pour les armes, les baïonnettes et les objets issus de fouilles : identification, marquages et datation uniquement, aucune aide pour fabriquer, modifier ou remettre en état de fonctionnement. Rappelle en une phrase (champ « reglementation ») que la détention, la vente et le transport sont réglementés et qu'il faut vérifier la loi applicable, sans détailler les règles.",
       "- N'invente aucune référence. Pour les ouvrages à consulter, choisis 1 à 4 identifiants dans la liste ci-dessous, adaptés à la fois à l'époque et au type de pièce, avec une phrase d'explication. Si aucun ne convient, renvoie une liste vide.",
+      "- Pense aux textes officiels du pays concerné (journal officiel, bulletin officiel du ministère de la guerre ou des armées, règlement sur l'uniforme, London Gazette, Reichsgesetzblatt, Army Regulations…). Dans « textes_officiels », indique 1 à 3 textes ou séries à rechercher : pays, type de texte, sujet, et l'identifiant d'une source de la liste dans « ou » si elle convient (sinon chaîne vide). N'invente JAMAIS un numéro, une date ou un article : si tu n'es pas certain, décris seulement le type de texte à chercher.",
       '- Propose des mots-clés de recherche (en français, en anglais ou en allemand selon la pièce) pour les forums spécialisés, les livres numérisés et les archives.',
       '- Liste les vérifications physiques utiles (aimant, poids, rivets, soudures, doublure, patine, loupe, lumière UV).',
       "- Si la valeur supposée ou le doute le justifie, recommande l'avis d'un expert humain.",
@@ -917,7 +926,7 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
       "- Classe les hypothèses par vraisemblance, en plaçant d'abord celles qui se recoupent. Ne conclus jamais à l'authenticité : « compatible avec » seulement.",
       "- Dans « desaccords », liste chaque point où les analyses se contredisent : le sujet, l'avis de chaque IA, et ce qu'il vaut mieux retenir en une phrase.",
       "- « accord » vaut « fort », « moyen » ou « faible » selon la concordance globale.",
-      "- « ouvrages » ne contient que des identifiants déjà présents dans les analyses. Garde les mots-clés utiles, sans doublons.",
+      "- « ouvrages » ne contient que des identifiants déjà présents dans les analyses. Fusionne « textes_officiels » sans doublons et sans rien ajouter. Garde les mots-clés utiles, sans doublons.",
       '',
       blocks,
       '',
@@ -1066,6 +1075,7 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
       { l: 'Google Livres', u: 'https://www.google.com/search?tbm=bks&q=' + enc },
       { l: 'Google Images', u: 'https://www.google.com/search?tbm=isch&q=' + enc },
       { l: 'Forums de référence', u: sites ? 'https://www.google.com/search?q=' + encodeURIComponent(q + ' (' + sites + ')') : '' },
+      { l: 'Textes officiels', u: 'https://www.google.com/search?q=' + encodeURIComponent(q + ' (site:legifrance.gouv.fr OR site:gallica.bnf.fr OR site:thegazette.co.uk OR site:alex.onb.ac.at OR site:ris.bka.gv.at OR site:bo.sga.defense.gouv.fr)') },
       { l: 'Gallica (BnF)', u: 'https://gallica.bnf.fr/services/engine/search/sru?operation=searchRetrieve&version=1.2&query=' + encodeURIComponent('(gallica all "' + q + '")') },
       { l: 'Internet Archive', u: 'https://archive.org/search?query=' + enc },
       { l: 'Google (web)', u: 'https://www.google.com/search?q=' + enc }
@@ -1149,6 +1159,14 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
         o.pourquoi ? h('span', { class: 'why', text: str(o.pourquoi) }) : null);
     })) : null));
 
+    var offs = arr(r.textes_officiels).filter(function (o) { return o && (o.sujet || o.type); });
+    add(wrap, sec('Textes officiels à rechercher', offs.length ? [h('ul', { class: 'books' }, offs.map(function (o) {
+      var b = BY_ID[o.ou];
+      return h('li', null,
+        h('span', { text: [str(o.pays), str(o.type)].filter(Boolean).join(' · ') }),
+        o.sujet ? h('span', { class: 'why', text: str(o.sujet) }) : null,
+        b && b.url ? h('a', { href: b.url, target: '_blank', rel: 'noopener noreferrer', text: 'Où chercher : ' + b.titre }) : null);
+    })), h('p', { class: 'note', text: "Pistes proposées par l'IA, à vérifier : les références exactes (numéros, dates) sont à trouver dans les collections, jamais à prendre telles quelles." })] : null));
     if (str(r.reglementation).trim()) wrap.append(h('div', { class: 'alert' }, h('b', { text: 'Réglementation' }), h('span', { text: str(r.reglementation) })));
     if (r.expert && r.expert.recommande) wrap.append(h('div', { class: 'alert' }, h('b', { text: "Avis d'un expert recommandé" }), h('span', { text: str(r.expert.raison) })));
     wrap.append(h('p', { class: 'disclaimer', text: "« Compatible avec » ne veut pas dire authentique. Cette lecture se fait sur photos et peut contenir des erreurs. Pour une pièce de valeur, fais examiner l'objet par un expert." }));
@@ -1397,7 +1415,7 @@ details.help ol, details.help ul { margin: 0; padding-left: 20px; list-style: re
         b.auteur ? h('span', { class: 'a', text: b.auteur }) : null));
     });
     root.append(block,
-      h('p', { class: 'note', text: "Liste établie par recherche le 10 novembre 2026. Vérifie titres, éditions et disponibilité avant d'acheter. Les forums donnent des pistes, pas des preuves : on y trouve aussi des avis erronés et des vendeurs. Aucun ouvrage spécialisé sur les caisses n'a été confirmé : les pages proposées sont des sites." }));
+      h('p', { class: 'note', text: "Liste établie par recherche le 10 novembre 2026. Vérifie titres, éditions et disponibilité avant d'acheter. Les forums donnent des pistes, pas des preuves : on y trouve aussi des avis erronés et des vendeurs. Aucun ouvrage spécialisé sur les caisses n'a été confirmé : les pages proposées sont des sites. Les textes officiels (journaux officiels, gazettes, règlements) sont des collections à fouiller : le bouton « Textes officiels » lance une recherche dessus. Le Bulletin officiel du ministère de la guerre n'a pas pu être confirmé en ligne : cherche-le sur Gallica." }));
   }
 
   /* =========================================================
